@@ -1,4 +1,4 @@
-# life
+# life_vue
 
 ## Project setup
 ```
