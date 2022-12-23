@@ -30,29 +30,24 @@ class Board:
         contador = 0 
         for row in self._grid:
             for column in row:
-                # chance_number = randint(0,2)
-                # if chance_number == 1:
-                #     column.atualiza_status('Alive') #muda o status da célula aleatoriamente para viva ou morta em cada coluna
-                if contador > 0 and contador <6:
-                    column.atualiza_status('Dead')
-                    contador += 1 
-                elif contador > 5 and contador<11:
-                    column.atualiza_status('Dead')
-                    contador += 1 
-                elif contador == 11:
-                    column.atualiza_status('Dead')
-                    contador += 1 
-                elif contador>11 and contador<15:
-                    column.atualiza_status('Alive')
-                    contador += 1 
-                else:
-                    column.atualiza_status('Dead')
-                    contador += 1 
-
-
-
-
-
+                chance_number = randint(0,2)
+                if chance_number == 1:
+                     column.atualiza_status('Alive') #muda o status da célula aleatoriamente para viva ou morta em cada coluna
+                # if contador > 0 and contador <6:
+                #     column.atualiza_status('Dead')
+                #     contador += 1 
+                # elif contador > 5 and contador<11:
+                #     column.atualiza_status('Dead')
+                #     contador += 1 
+                # elif contador == 11:
+                #     column.atualiza_status('Dead')
+                #     contador += 1 
+                # elif contador>11 and contador<15:
+                #     column.atualiza_status('Alive')
+                #     contador += 1 
+                # else:
+                #     column.atualiza_status('Dead')
+                #     contador += 1 
 
     def draw_board(self):
         print('\n'*10)       #printa a board
