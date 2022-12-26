@@ -15,7 +15,13 @@
     <v-btn
     @click="criaGrid()"
     elevation="2"
+    class="mb-8"
     >Criar tabela</v-btn>
+    <v-btn
+    @click="reiniciaJogo()"
+    elevation="2"
+    class="mb-8 ml-8"
+    >Reiniciar Jogo</v-btn>
     <table>
       <tr v-for="(line, r) in grid" :key="`${line}-${r}`">
         <td
@@ -38,6 +44,9 @@ export default {
     };
   },
   methods: {
+    reiniciaJogo(){
+      this.grid = []
+    },
     criaGrid(){
       for (let i = 0; i < this.lines; i++  ){
         let colunas = []
