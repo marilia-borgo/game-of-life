@@ -1,30 +1,59 @@
 <template>
-  <table>
-    <tr v-for="(line, r) in grid" :key="`${line}-${r}`">
-      <td
-        v-for="(coluna, c) in line"
-        :key="`${r}-${c}-${coluna}`"
-        :class="classes(r, c)"
-      ></td>
-    </tr>
-  </table>
+  <div>
+      <v-text-field
+      v-model="lines"
+      label="linhas"
+      outlined
+      clearable
+    ></v-text-field>
+    <v-text-field
+      v-model="columns"
+      label="colunas"
+      outlined
+      clearable
+    ></v-text-field>
+    <v-btn
+    @click="criaGrid()"
+    elevation="2"
+    >Criar tabela</v-btn>
+    <table>
+      <tr v-for="(line, r) in grid" :key="`${line}-${r}`">
+        <td
+          v-for="(coluna, c) in line"
+          :key="`${r}-${c}-${coluna}`"
+          :class="classes(r, c)"
+        ></td>
+      </tr>
+    </table>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      grid: [
-        [0, 0, 1, 0, 0],
-        [0, 0, 1, 0, 0],
-        [0, 0, 1, 0, 0],
-        [0, 0, 0, 0, 0],
-      ],
-      lines: 4,
-      columns: 5,
+      grid: [],
+      lines:'',
+      columns: '',
     };
   },
   methods: {
+    criaGrid(){
+      for (let i = 0; i < this.lines; i++  ){
+        let colunas = []
+        for (let i = 0; i < this.columns; i++  ){
+          let min = Math.ceil(0)
+          let max = Math.floor(1)
+            colunas.push(Math.floor(Math.random() * (max - min + 1)) + min)
+            }
+            this.grid.push(colunas)
+          }
+      const grid = () => {
+      this.update();
+      setTimeout(grid, 800);
+    };
+    grid();
+      },
     update() {
       let new_matriz = JSON.parse(JSON.stringify(this.grid))
       for (let i = 0; i < this.lines; i++) {
@@ -60,22 +89,13 @@ export default {
           somatorio += this.grid[vizinho_x][vizinho_y]
         }
       }
-      console.log(`${x} ${y} esse é o somatório ${somatorio}`);
       return somatorio;
     },
     classes(linha, coluna) {
-      console.log(this.grid[linha][coluna]);
       return {
         pintado: this.grid[linha][coluna],
       };
     },
-  },
-  created() {
-    const acabate = () => {
-      this.update();
-      setTimeout(acabate, 800);
-    };
-    acabate();
   },
 };
 </script>
