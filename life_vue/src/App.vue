@@ -12,7 +12,7 @@
 
     <v-card
       class="mx-auto"
-      max-width="700"
+      max-width="1500"
       style="margin-top: -64px;"
     >
       <v-toolbar flat>
