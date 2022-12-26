@@ -15,12 +15,12 @@ cd life_vue
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Roda localmente o projeto
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compila gerando os arquivos estáticos
 ```
 npm run build
 ```
