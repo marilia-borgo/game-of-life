@@ -100,21 +100,15 @@ class Board:
         for row in range(search_min,search_max):
             for column in range(search_min,search_max):
                 neighbour_row = check_row + row
-                neighbour_column = check_column + column 
+                neighbour_column = check_column + column  #começa tecnicamente com todo mundo dentro da board
                 
-                valid_neighbour = True #começa tecnicamente com todo mundo dentro da board
-
                 if (neighbour_row) == check_row and (neighbour_column) == check_column:
-                    valid_neighbour = False
-
-                if (neighbour_row) < 0 or (neighbour_row) >= self._rows:
-                    valid_neighbour = False
-
-                if (neighbour_column) < 0 or (neighbour_column) >= self._columns:
-                    valid_neighbour = False
-
-                if valid_neighbour:
-                    neighbour_list.append(self._grid[neighbour_row][neighbour_column])
+                    continue
+                elif (neighbour_row) < 0 or (neighbour_row) >= self._rows:
+                    continue
+                elif (neighbour_column) < 0 or (neighbour_column) >= self._columns:
+                    continue
+                neighbour_list.append(self._grid[neighbour_row][neighbour_column])
         return neighbour_list
 
 def inicia_jogo():
