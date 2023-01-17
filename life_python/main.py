@@ -64,7 +64,7 @@ class Board:
 
         for row in range(len(self._grid)): #para cada linha
             for column in range(len(self._grid[row])): #cada coluna
-                check_vizinho = self.check_vizinho(row , column) #verifica os vizinhos (true e false)
+                check_vizinho = self._check_vizinho(row , column) #verifica os vizinhos (true e false)
                 
                 living_neighbours_count = []
 
@@ -78,10 +78,6 @@ class Board:
                 if status_main_cell == True: #se ela estiver viva
                     if len(living_neighbours_count) < 2 or len(living_neighbours_count) > 3: #e tiver menos do que dois ou mais que dois vizinhos ela morre
                         gets_killed.append(cell_object)
-
-                    if len(living_neighbours_count) > 2  and len(living_neighbours_count) < 4:
-                        goes_alive.append(cell_object) #se ela tiver tres ou dois vizinhos ela vive
-
                 else:
                     if len(living_neighbours_count) == 3:
                         goes_alive.append(cell_object) #se tiver tres vizinhos volta a vida
@@ -95,7 +91,7 @@ class Board:
 
     
     
-    def check_vizinho(self, check_row , check_column): #ta dentro da board (lida com os cantos)
+    def _check_vizinho(self, check_row , check_column): #ta dentro da board (lida com os cantos)
         search_min = -1
         search_max = 2
         #pra fazer a pesquisa de vizinhos onde -1 é o anterior  e 2 é o próximo
@@ -128,7 +124,7 @@ def inicia_jogo():
     game_of_life_board.draw_board()
     user_action = ''
     while user_action != 'q':
-        continua_question = input('Aperte qualquer tecla para continuar')
+        continua_question = input('Aperte Enter para continuar')
 
         if continua_question  == '':
             game_of_life_board.update_board()
