@@ -50,10 +50,8 @@ export default {
     criaGrid(){
       for (let i = 0; i < this.lines; i++  ){
         let colunas = []
-        for (let i = 0; i < this.columns; i++  ){
-          let min = Math.ceil(0)
-          let max = Math.floor(1)
-            colunas.push(Math.floor(Math.random() * (max - min + 1)) + min)
+        for (let i = 0; i < this.columns; i++){
+            colunas.push(Math.random() > 0.8)
             }
             this.grid.push(colunas)
           }
