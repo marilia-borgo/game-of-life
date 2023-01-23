@@ -51,6 +51,7 @@ export default {
       for (let i = 0; i < this.lines; i++  ){
         let colunas = []
         for (let i = 0; i < this.columns; i++){
+
             colunas.push(Math.random() > 0.8)
             }
             this.grid.push(colunas)
